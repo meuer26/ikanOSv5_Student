@@ -1,0 +1,13 @@
+// Copyright (c) 2023-2025 Dan O’Malley
+// This file is licensed under the MIT License. See LICENSE for details.
+// Text descriptions generated with Grok by xAI.
+
+
+#include "constants.h"
+/** The function referenced in the interrupt descriptor table when a page fault is detected. */
+void pageFault();
+
+/** The function referenced in the interrupt descriptor table when a general protection fault is detected. */
+void generalProtectionFault();
+
+void generalFault();
