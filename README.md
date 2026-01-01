@@ -41,7 +41,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Memory Management
 - Virtual memory with paging: 8 MB user space (0x0–0x7FFFFF) and 8 MB kernel space (0x800000+). User heap starts at 0x600000, stack at 0x7FE000.
-- Frame allocation uses a page frame map with first-fit strategy Processes can request specific or available pages via mmap syscall.
+- Frame allocation uses a page frame map with first-fit strategy. Processes can request specific or available pages via mmap syscall.
 - Supports ELF loading, mapping text/data sections to preferred addresses.
 - Kernel caches (e.g., fully associative LRU disk cache) and semaphores for mutual exclusion on shared structures.
 
