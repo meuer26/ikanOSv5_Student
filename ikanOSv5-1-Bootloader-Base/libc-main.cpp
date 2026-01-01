@@ -1,4 +1,4 @@
-// Copyright (c) 2023-2025 Dan O’Malley
+// Copyright (c) 2023-2026 Dan O’Malley
 // This file is licensed under the MIT License. See LICENSE for details.
 // Generated with Grok by xAI.
 // This is a combination of work by Dan O'Malley and Grok.

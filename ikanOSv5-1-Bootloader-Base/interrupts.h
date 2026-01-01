@@ -1,3 +1,8 @@
+// Copyright (c) 2023-2026 Dan O’Malley
+// This file is licensed under the MIT License. See LICENSE for details.
+// Text descriptions generated with Grok by xAI.
+
+
 #include "constants.h"
 
 /** The interrupt descriptor structure. This is the layout of the entries in the interrupt descriptor table. */

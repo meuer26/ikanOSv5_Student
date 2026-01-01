@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2025 Dan O’Malley
+# Copyright (c) 2023-2026 Dan O’Malley
 # This file is licensed under the MIT License. See LICENSE for details.
 # Initial version by Dan O'Malley, extended with Grok to support
 # incremental builds

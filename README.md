@@ -4,7 +4,7 @@
 
 Dan O’Malley
 
-This project is based on versions 1-4 of [SimpleOS](https://github.com/meuer26/SimpleOSv4_Student) by Dan O'Malley (built during 2023-2025) but was enhanced and written with Grok (xAI) for version 5. This was a large-scale attempt to see how team programming with an AI in late 2025 could enhance a significant low-level project. Overall, Grok did well on high-level C code but required significant assistance with the hardware-software interface and low-level debugging. It also seemed to lose context on very large files and required significant assistance for large files. It took roughly 120 hours to move from v4 to v5 of this project with Grok's help.
+This project is based on versions 1-4 of [SimpleOS](https://github.com/meuer26/SimpleOSv4_Student) by Dan O'Malley (built during 2023-2026) but was enhanced and written with Grok (xAI) for version 5. This was a large-scale attempt to see how team programming with an AI in late 2025, early 2026 could enhance a significant low-level project. Overall, Grok did well on high-level C code but required significant assistance with the hardware-software interface and low-level debugging. It also seemed to lose context on very large files and required significant assistance for large files. It took roughly 120 hours to move from v4 to v5 of this project with Grok's help.
 
 ## License
 
@@ -86,9 +86,9 @@ Parameters passed via structs (e.g., file/network params) for flexibility.
 
 ## Attribution
 
-Versions 1-4 of this kernel (when it was named SimpleOS) were written by Dan O'Malley (during 2023-2025). For Version 5, Dan O'Malley had Grok (xAI) add to the C library, develop functions to easily display memory, disassemble machine code, enhance file system operations, as well as create the edlin text editor, the basic c compiler, the basic assembler, and some games. This allowed a much more full-featured userspace for students while Dan O'Malley's kernel has largely remained the same.
+Versions 1-4 of this kernel (when it was named SimpleOS) were written by Dan O'Malley (during 2023-2026). For Version 5, Dan O'Malley had Grok (xAI) add to the C library, develop functions to easily display memory, disassemble machine code, enhance file system operations, as well as create the edlin text editor, the basic c compiler, the basic assembler, and some games. This allowed a much more full-featured userspace for students while Dan O'Malley's kernel has largely remained the same.
 
-In Version 5, the following programs were written by Dan O'Malley:
+In Version 5, the following files were written by Dan O'Malley:
 - bootloader-stage1.asm
 - bootloader-stage2.cpp
 - cat.cpp
@@ -114,19 +114,19 @@ In Version 5, the following programs were written by Dan O'Malley:
 - test1.s
 - testall.sh
 
-The following programs are based on earlier versions of Dan O'Malley's code but extended with Grok:
+The following files are based on earlier versions of Dan O'Malley's code but extended with Grok:
 
 - fs.cpp had functions created and extended with Grok. These are noted inline in that file.
 - sh.cpp and ex.cpp were written by Dan O'Malley but argument checking tweaks/tokenization, keyboard enhancement as well as command history were written by Grok.
 - keyboard.cpp was written by Dan O'Malley but extended with new keys by Grok.
-- screen.cpp had one function written by Grok (switchTo80x50Mode), the rest by Dan O'Malley
+- screen.cpp had one function written by Grok (switchTo80x50Mode), the rest by Dan O'Malley.
 - second_proc_start.asm was based on bootloader-stage-1 but extended with Grok.
 - Most syscall.cpp code written by Dan O'Malley. Grok wrote some functions and extended others. These are noted inline.
 - Most x86.cpp code written by Dan O'Malley. Grok wrote one function (startApplicationProcessor) and it is noted inline.
 - libc-main.cpp is a combination of Dan O'Malley and Grok. These are noted inline.
 - Makefile was written by Dan O'Malley but extended with Grok to support incremental builds.
 
-The following programs/portions were entirely written by Grok:
+The following files/portions were entirely written by Grok:
 - adventure.cpp
 - al.cpp
 - cc.cpp
