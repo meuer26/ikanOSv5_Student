@@ -64,6 +64,7 @@ void moveCursor(uint32_t targetRow, uint32_t targetColumn)
 void switchTo80x50Mode(uint8_t* fontData)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     // Font load (if data provided)
     //if (fontData) {

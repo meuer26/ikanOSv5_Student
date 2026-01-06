@@ -46,6 +46,7 @@ void wait(uint32_t timeToWait)
 uint32_t strcmp(uint8_t *firstString, uint8_t *secondString)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
 
     while (*firstString && *firstString == *secondString) 
     {
@@ -64,6 +65,7 @@ uint32_t strcmp(uint8_t *firstString, uint8_t *secondString)
 uint32_t strlen(uint8_t *targetString)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t length = 0;
     while (*targetString != 0) 
@@ -82,6 +84,7 @@ uint32_t strlen(uint8_t *targetString)
 void strcpy(uint8_t *destinationString, uint8_t *sourceString)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
 
     while (*sourceString) 
     {
@@ -99,6 +102,7 @@ void strcpy(uint8_t *destinationString, uint8_t *sourceString)
 void strcpyRemoveNewline(uint8_t *destinationString, uint8_t *sourceString)
 {
     // Written by Grok. 
+    // 12/2025 with Grok v4.
     
     while (*sourceString && *sourceString != '\n') 
     {
@@ -133,6 +137,7 @@ void bytecpy(uint8_t *destinationMemory, uint8_t *sourceMemory, uint32_t numberO
 void reverseString(uint8_t *targetString)
 {
     // Written by Grok
+    // 12/2025 with Grok v4.
 
     uint8_t *start = targetString;
     uint8_t *end = targetString;
@@ -160,6 +165,8 @@ void reverseString(uint8_t *targetString)
 uint32_t power(uint32_t number, uint32_t exponent)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
+
     uint32_t result = 1;
     while (exponent > 0) 
     {
@@ -183,6 +190,7 @@ uint32_t power(uint32_t number, uint32_t exponent)
 void itoa(uint32_t number, uint8_t *destinationMemory)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
 
     if (number == 0) 
     {
@@ -228,6 +236,7 @@ void itoa(uint32_t number, uint8_t *destinationMemory)
 void itoaHex(uint32_t number, uint8_t *destinationMemory)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     // Index for buffer.
     uint32_t index = 0;
@@ -263,6 +272,7 @@ void itoaHex(uint32_t number, uint8_t *destinationMemory)
 uint32_t hextoi(uint8_t *hexString)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     // Starting index and result.
     uint32_t index = 0;
@@ -314,6 +324,7 @@ uint32_t hextoi(uint8_t *hexString)
 void itoIPAddressString(uint32_t ipAddress, uint8_t *destinationMemory)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     // Extract octets.
     uint32_t octet1 = (ipAddress >> 24) & 0xFF;
@@ -357,6 +368,7 @@ void itoIPAddressString(uint32_t ipAddress, uint8_t *destinationMemory)
 uint32_t ipAddressTointeger(uint8_t *ipAddress)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     // Octet string buffers.
     uint8_t octetStr1[4] = {0};
@@ -428,6 +440,7 @@ uint32_t ipAddressTointeger(uint8_t *ipAddress)
 uint32_t atoi(uint8_t *sourceString)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
 
     uint8_t *p = sourceString;
     // Skip whitespace
@@ -1132,6 +1145,7 @@ void systemCloseFile(uint32_t fileDescriptor)
 uint8_t *octalTranslation(uint8_t permissions)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     if (permissions == 0x0) { return (uint8_t *)"---"; }
     else if (permissions == 0x1) { return (uint8_t *)"--X"; }
@@ -1152,6 +1166,7 @@ uint8_t *octalTranslation(uint8_t permissions)
 uint16_t stringToOctal(uint8_t *modeString)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint16_t mode = 0;
 
@@ -1207,6 +1222,7 @@ uint16_t stringToOctal(uint8_t *modeString)
 bool hasOwnerExecute(uint16_t mode)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     return (mode & 0100) != 0;
 }
@@ -1219,6 +1235,7 @@ bool hasOwnerExecute(uint16_t mode)
 bool hasGroupExecute(uint16_t mode)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     return (mode & 0010) != 0;
 }
@@ -1231,6 +1248,7 @@ bool hasGroupExecute(uint16_t mode)
 bool hasOtherExecute(uint16_t mode)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     return (mode & 0001) != 0;
 }
@@ -1311,6 +1329,7 @@ uint32_t countKernelHeapObjects(uint8_t *heapLoc)
 uint32_t convertToUnixTime(struct time* Time)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t sec = Time->sec;
     uint32_t min = Time->min;
@@ -1335,6 +1354,7 @@ uint32_t convertToUnixTime(struct time* Time)
 void convertFromUnixTime(uint32_t unixTime, struct time *Time)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     unixTime -= 946684800;  // To 2000.
 
@@ -1533,6 +1553,7 @@ void systemKernelLogViewer()
 uint32_t waitForEnterOrQuit()
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint8_t isShiftDown = 0;
     while (true)
@@ -1585,6 +1606,7 @@ uint32_t waitForEnterOrQuit()
 uint8_t* strConcat(uint8_t* first, uint8_t* second) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t currentPid = readValueFromMemLoc(RUNNING_PID_LOC);
     uint32_t len1 = strlen(first);
@@ -1607,6 +1629,7 @@ uint8_t* strConcat(uint8_t* first, uint8_t* second)
 uint8_t* removeExtension(uint8_t* filename) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t currentPid = readValueFromMemLoc(RUNNING_PID_LOC);
     uint32_t len = strlen(filename);
@@ -1641,6 +1664,7 @@ uint8_t* removeExtension(uint8_t* filename)
 uint8_t* subString(uint8_t* original, uint32_t charsToRemoveFromRight) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t currentPid = readValueFromMemLoc(RUNNING_PID_LOC);
     uint32_t len = strlen(original);
@@ -1670,6 +1694,7 @@ uint8_t* subString(uint8_t* original, uint32_t charsToRemoveFromRight)
 int isSpace(uint8_t character) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     return character == ' ' || character == '\t' || character == '\r' || character == '\n' || character == '\f' || character == '\v';
 }
@@ -1682,6 +1707,7 @@ int isSpace(uint8_t character)
 uint8_t *skipWhitespace(uint8_t *stringPointer) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     while (*stringPointer && isSpace(*stringPointer)) stringPointer++;
     return stringPointer;
@@ -1695,6 +1721,7 @@ uint8_t *skipWhitespace(uint8_t *stringPointer)
 unsigned char toLower(unsigned char character)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     return (character >= 'A' && character <= 'Z') ? character + 32 : character;
 }
@@ -1707,6 +1734,7 @@ unsigned char toLower(unsigned char character)
 int isDigit(unsigned char character)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     return character >= '0' && character <= '9';
 }
@@ -1719,6 +1747,7 @@ int isDigit(unsigned char character)
 int isAlpha(unsigned char character)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     return (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z');
 }
@@ -1731,6 +1760,7 @@ int isAlpha(unsigned char character)
 uint32_t rand()
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t seed = readValueFromMemLoc((uint8_t*)USER_TOTAL_INTERRUPTS_COUNT_LOC);
     seed = seed * 1103515245 + 12345;
@@ -1749,6 +1779,7 @@ uint32_t rand()
 void printf(uint32_t color, uint32_t row, uint32_t column, uint8_t *format, ...) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     va_list ap;
     va_start(ap, format);
@@ -1870,6 +1901,7 @@ void printf(uint32_t color, uint32_t row, uint32_t column, uint8_t *format, ...)
 uint8_t getAsciiFromScanCode(uint8_t scanCode, uint8_t shift_down) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     switch (scanCode) {
         case 0x02: return shift_down ? '!' : '1';
@@ -1938,6 +1970,7 @@ uint8_t getAsciiFromScanCode(uint8_t scanCode, uint8_t shift_down)
 uint32_t scanf(uint32_t color, uint32_t row, uint32_t column, uint8_t *format, ...) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     va_list ap;
     va_start(ap, format);
@@ -2179,6 +2212,7 @@ void printHexNumber(uint32_t color, uint32_t row, uint32_t column, uint8_t numbe
 }
 
 // Struct and jump table written by Grok.
+// 12/2025 with Grok v4.
 
 typedef struct {
     const char* name;

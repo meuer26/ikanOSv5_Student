@@ -110,6 +110,7 @@ uint32_t sysCall(uint32_t sysCallNumber, uint32_t arg1, uint32_t currentPid)
 void startApplicationProcessor()
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     // Load SIPI code to a reserved space low in RAM
     for (uint8_t sector = 0; sector < (PAGE_SIZE / SECTOR_SIZE); sector++)

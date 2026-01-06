@@ -256,6 +256,7 @@ void sysClose(uint32_t fileDescriptor, uint32_t currentPid)
 void sysPs(uint32_t currentPid)
 {
     // Initial version by Dan O'Malley. Extended with Grok.
+    // 12/2025 with Grok v4.
     
     insertKernelLog(totalInterruptCount, currentPid, (uint8_t*)"SYSPS", 0 ,(uint8_t*)"NULL");
 
@@ -571,6 +572,7 @@ void sysPs(uint32_t currentPid)
 void sysExec(struct fileParameter *FileParameter, uint32_t currentPid, uint32_t directoryInode)
 {
     // Initial version by Dan O'Malley. Extended with owner checking by Grok.
+    // 12/2025 with Grok v4.
     
     insertKernelLog(totalInterruptCount, currentPid, (uint8_t*)"SYSEXEC", FileParameter->fileDescriptor, FileParameter->fileName);
 
@@ -925,6 +927,7 @@ void sysSwitch(uint32_t pidToSwitchTo, uint32_t currentPid)
 void sysDiskSectorDump(uint32_t sectorToDump)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t currentPid = readValueFromMemLoc(RUNNING_PID_LOC);
     fillMemory((uint8_t*)SECTOR_AND_BLOCK_VIEWER_BUF_LOC, 0x0, PAGE_SIZE);
@@ -1000,6 +1003,7 @@ void sysInodeDump(uint32_t inodeNumber, uint32_t currentPid)
 {
 
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     fillMemory((uint8_t*)SECTOR_AND_BLOCK_VIEWER_BUF_LOC, 0x0, PAGE_SIZE);
     loadInode(inodeNumber, (uint8_t*)SECTOR_AND_BLOCK_VIEWER_BUF_LOC, cachingEnabled);
@@ -1272,6 +1276,7 @@ void sysInodeDump(uint32_t inodeNumber, uint32_t currentPid)
 void sysElfHeaderDump(uint8_t *elfHeaderLocation) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     clearScreen();
     printString(COLOR_LIGHT_BLUE, 0, 0, (uint8_t*)"ELF Header Raw Bytes:");
@@ -1618,6 +1623,7 @@ void sysElfHeaderDump(uint8_t *elfHeaderLocation)
 void sysDiskBlockDump(uint32_t blockToDump)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t currentPid = readValueFromMemLoc(RUNNING_PID_LOC);
     fillMemory((uint8_t*)SECTOR_AND_BLOCK_VIEWER_BUF_LOC, 0x0, PAGE_SIZE);
@@ -1675,6 +1681,7 @@ void sysDiskBlockDump(uint32_t blockToDump)
 void sysMemDump(uint32_t memAddressToDump)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t currentPid = readValueFromMemLoc(RUNNING_PID_LOC);
     
@@ -1727,6 +1734,7 @@ void sysMemDump(uint32_t memAddressToDump)
 void sysDisassemble(uint32_t memAddressToDisasm)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t currentPid = readValueFromMemLoc(RUNNING_PID_LOC);
     
@@ -2180,6 +2188,7 @@ void sysWaitOneInterrupt()
 void sysDirectory(uint32_t currentPid, uint32_t directoryInode)
 {   
     // Initial version by Dan O'Malley. Extended by Grok.
+    // 12/2025 with Grok v4.
     
     insertKernelLog(totalInterruptCount, currentPid, (uint8_t*)"SYSDIR", directoryInode ,(uint8_t*)"NULL");
 
@@ -2416,6 +2425,7 @@ void sysToggleScheduler()
 void sysShowOpenFiles(uint32_t startDisplayAtRow, uint32_t currentPid)
 {
     // Initial version by Dan O'Malley. Extended by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t currentTaskStructLocation = PROCESS_TABLE_LOC + (TASK_STRUCT_SIZE * (currentPid - 1));
     struct task *currentTask = (struct task*)currentTaskStructLocation;
@@ -2884,6 +2894,7 @@ uint32_t sysWhatPidAmI()
 void sysChangeDirectory(struct fileParameter *FileParameter, uint32_t currentPid, uint32_t directoryInode) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t taskStructLocation = PROCESS_TABLE_LOC + (TASK_STRUCT_SIZE * (currentPid - 1));
     struct task *Task = (struct task*)taskStructLocation;
@@ -2912,6 +2923,7 @@ void sysChangeDirectory(struct fileParameter *FileParameter, uint32_t currentPid
 void insertKernelLog(uint32_t interruptCount, uint32_t pid, uint8_t *type, uint32_t value, uint8_t *description) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     static uint32_t next_write = 0;
     struct kernelLog *log = (struct kernelLog *)KERNEL_LOG_LOC;
@@ -2926,6 +2938,7 @@ void insertKernelLog(uint32_t interruptCount, uint32_t pid, uint8_t *type, uint3
 uint32_t getLatestTypeExample(uint8_t* typeToFind) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     struct kernelLog *log = (struct kernelLog *)KERNEL_LOG_LOC;
     uint32_t maxInterrupt = 0;
@@ -2949,6 +2962,7 @@ uint32_t getLatestTypeExample(uint8_t* typeToFind)
 void printKernelLog(uint32_t currentPid) 
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     clearScreen();
     printString(COLOR_LIGHT_BLUE, 0, 0, (uint8_t *)"Kernel Log");
@@ -3507,6 +3521,7 @@ void systemInterruptHandler()
 void printSystemUptime(uint32_t uptimeSeconds)
 {
     // Written by Grok.
+    // 12/2025 with Grok v4.
     
     if (*(uint32_t*)(LOGIN_COMPLETE) == 1)
     {
