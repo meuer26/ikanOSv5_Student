@@ -25,6 +25,7 @@ void diskReadSector(uint32_t sectorNumber, uint8_t *destinationMemory, bool cach
     else
     {        
         // LRU cache extension by Grok.
+        // 12/2025 with Grok v4.
 
         struct cacheLineDetail *CacheLineDetail = (struct cacheLineDetail *)DISK_READ_CACHE_LOC;
         uint8_t *cacheData = (uint8_t *)DISK_READ_CACHE_DATA;
@@ -148,6 +149,7 @@ void writeBlock(uint32_t blockNumber, uint8_t *sourceMemory, bool cacheActive)
 uint32_t allocateFreeBlock(bool cacheActive)
 {
     // Initial version by Dan O'Malley. Extended with Grok.
+    // 12/2025 with Grok v4.
     
     struct blockGroupDescriptor *BlockGroupDescriptor = (blockGroupDescriptor*)(BLOCK_GROUP_DESCRIPTOR_TABLE);
     readBlock(BlockGroupDescriptor->bgd_block_address_of_block_usage, (uint8_t *)EXT2_BLOCK_USAGE_MAP, cacheActive);
@@ -233,6 +235,7 @@ uint32_t readTotalBlocksUsed(bool cacheActive)
 void freeBlock(uint32_t blockNumber, bool cacheActive)
 {
     // Initial version by Dan O'Malley. Extended with Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t blockGroupByte = blockNumber / 8;
     uint32_t blockGroupBit = blockNumber % 8;
@@ -320,6 +323,7 @@ void deleteFile(uint8_t *fileName, uint32_t currentPid, bool cacheActive, uint32
 uint32_t allocateInode(bool cacheActive)
 {
     // Initial version written by Dan O'Malley. Extended with Grok.
+    // 12/2025 with Grok v4.
     
     struct blockGroupDescriptor *BlockGroupDescriptor = (blockGroupDescriptor*)(BLOCK_GROUP_DESCRIPTOR_TABLE);
     readBlock(BlockGroupDescriptor->bgd_block_address_of_inode_usage, (uint8_t *)EXT2_INODE_USAGE_MAP, cacheActive);
@@ -379,6 +383,7 @@ uint32_t readNextAvailableInode(bool cacheActive)
 void deleteDirectoryEntry(uint8_t *fileName, bool cacheActive, uint32_t directoryInode)
 {
     // Initial version written by Dan O'Malley. Extended with Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t inodeToRemove = returnInodeofFileName(fileName, cacheActive, directoryInode);
     if (inodeToRemove == 0) return;
@@ -426,6 +431,7 @@ void deleteDirectoryEntry(uint8_t *fileName, bool cacheActive, uint32_t director
 void createFile(uint8_t *fileName, uint32_t currentPid, uint32_t fileDescriptor, bool cacheActive, uint32_t directoryInode)
 {
     // Initial version written by Dan O'Malley but extended with bug fix by Grok.
+    // 12/2025 with Grok v4.
     
     uint32_t taskStructLocation = PROCESS_TABLE_LOC + (TASK_STRUCT_SIZE * (currentPid - 1));
     struct task *Task = (struct task*)taskStructLocation;
@@ -590,6 +596,7 @@ bool fsFindFile(uint8_t *fileName, uint8_t *destinationMemory, bool cacheActive,
 { 
     // Written by Dan O'Malley but adjusted by Grok as there was a bug
     // when adding files to the directory
+    // 12/2025 with Grok v4.
     
     fillMemory((uint8_t *)KERNEL_WORKING_DIR_TEMP_INODE_LOC, 0x0, KERNEL_WORKING_DIR_TEMP_INODE_LOC_SIZE);
     fillMemory((uint8_t *)KERNEL_WORKING_DIR, 0x0, KERNEL_WORKING_DIR_SIZE);
@@ -636,6 +643,7 @@ bool fsFindFile(uint8_t *fileName, uint8_t *destinationMemory, bool cacheActive,
 uint32_t returnInodeofFileName(uint8_t *fileName, bool cacheActive, uint32_t directoryInode)
 { 
     // This code was written with Grok, an AI by xAI, based on my guidance and specifications.
+    // 12/2025 with Grok v4.
     
     fillMemory((uint8_t *)KERNEL_WORKING_DIR_TEMP_INODE_LOC, 0x0, KERNEL_WORKING_DIR_TEMP_INODE_LOC_SIZE);
     fillMemory((uint8_t *)KERNEL_WORKING_DIR, 0x0, KERNEL_WORKING_DIR_SIZE);
@@ -672,6 +680,7 @@ uint32_t returnInodeofFileName(uint8_t *fileName, bool cacheActive, uint32_t dir
 void loadInode(uint32_t inodeNumber, uint8_t* memoryAddress, bool cacheActive)
 {
     // This code was written with Grok, an AI by xAI, based on my guidance and specifications.
+    // 12/2025 with Grok v4.
     
     struct blockGroupDescriptor *BlockGroupDescriptor = (struct blockGroupDescriptor*)(BLOCK_GROUP_DESCRIPTOR_TABLE);
     uint32_t inode_index = inodeNumber - 1;
@@ -686,6 +695,7 @@ void loadInode(uint32_t inodeNumber, uint8_t* memoryAddress, bool cacheActive)
 bool getFilenameFromInode(uint32_t inodeNumber, uint8_t *destinationMemory, bool cacheActive, uint32_t directoryInode)
 {
     // This code was written with Grok, an AI by xAI, based on my guidance and specifications.
+    // 12/2025 with Grok v4.
     
     fillMemory((uint8_t *)KERNEL_WORKING_DIR_TEMP_INODE_LOC, 0x0, KERNEL_WORKING_DIR_TEMP_INODE_LOC_SIZE);
     fillMemory((uint8_t *)KERNEL_WORKING_DIR, 0x0, KERNEL_WORKING_DIR_SIZE);
@@ -715,6 +725,7 @@ bool getFilenameFromInode(uint32_t inodeNumber, uint8_t *destinationMemory, bool
 void moveFile(uint8_t *fileName, uint8_t *sourceDirectory, uint8_t *destinationDirectory, bool cacheActive)
 {
     // This code was written with Grok, an AI by xAI, based on my guidance and specifications.
+    // 12/2025 with Grok v4.
     
     uint32_t fileInode = returnInodeofFileName(fileName, cacheActive, getInodeFromPath(sourceDirectory, cacheActive));
     if (fileInode == 0) return;
@@ -805,6 +816,7 @@ void moveFile(uint8_t *fileName, uint8_t *sourceDirectory, uint8_t *destinationD
 void changeFileMode(uint8_t *fileName, uint16_t newMode, uint32_t currentPid, bool cacheActive, uint32_t directoryInode)
 {
     // This code was written with Grok, an AI by xAI, based on my guidance and specifications.
+    // 12/2025 with Grok v4.
     
     uint32_t inodeNumber = returnInodeofFileName(fileName, cacheActive, directoryInode);
     if (inodeNumber == 0)
@@ -837,6 +849,7 @@ void changeFileMode(uint8_t *fileName, uint16_t newMode, uint32_t currentPid, bo
 uint32_t getInodeFromPath(uint8_t *path, bool cacheActive) 
 {
     // This code was written with Grok, an AI by xAI, based on my guidance and specifications.
+    // 12/2025 with Grok v4.
     
     uint32_t currentInode = ROOTDIR_INODE;  // Start from root inode (2)
 
