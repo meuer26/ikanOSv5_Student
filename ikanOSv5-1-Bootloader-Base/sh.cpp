@@ -3,6 +3,7 @@
 // Most of the code written by Dan O'Malley
 // Argument tweaks/tokenization, shell script, 
 // and command history written by Grok.
+// 12/2025 with Grok v4.
 
 
 #include "screen.h"

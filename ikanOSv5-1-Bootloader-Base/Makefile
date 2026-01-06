@@ -2,6 +2,8 @@
 # This file is licensed under the MIT License. See LICENSE for details.
 # Initial version by Dan O'Malley, extended with Grok to support
 # incremental builds
+# 12/2025 with Grok v4.
+
 
 NASM := nasm -f bin
 CC := gcc
