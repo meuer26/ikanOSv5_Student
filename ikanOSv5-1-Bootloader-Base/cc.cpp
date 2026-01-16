@@ -359,7 +359,7 @@ void expectToken(TokenType expectedType)
 
 // "currentToken" is the lookahead token in this parser.
 // The computation branches based on the type here.
-// Based on this, and the XXXX recursive grammar pattern below,
+// Based on this, and the parseStatementList() recursive grammar pattern below,
 // this is an LL(1) parser (recursive descent) and is right-recursive
 
 void parseExpressionInfo(struct ExprInfo *info)
