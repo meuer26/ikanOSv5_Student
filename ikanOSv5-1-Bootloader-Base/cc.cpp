@@ -354,6 +354,14 @@ void expectToken(TokenType expectedType)
 // Parses an expression and populates the ExprInfo structure with generated code, value, and location.
 // Handles immediate numbers, identifiers, and chains of additions.
 // If additions are present, generates assembly to compute the result in EAX.
+
+
+
+// "currentToken" is the lookahead token in this parser.
+// The computation branches based on the type here.
+// Based on this, and the XXXX recursive grammar pattern below,
+// this is an LL(1) parser (recursive descent) and is right-recursive
+
 void parseExpressionInfo(struct ExprInfo *info)
 {
     uint8_t primaryLoc[30];
@@ -1160,6 +1168,13 @@ void parseStatement()
 
 // Parses a sequence of statements until a closing brace or end of input is encountered.
 // Calls parseStatement repeatedly in a loop.
+
+
+// You can think of this as the grammar rule-- StatementList: Statement | StatementList Statement
+// This is not strictly recursive from a programming perspective since you don't see explicitly
+// a function calling itself, but the fact that in parseStatementList() there is a while loop,
+// calling parseStatement, this while loop shows the recursive grammar pattern in action.
+
 void parseStatementList()
 {
     while (currentToken.type != RBRACE && currentToken.type != END)
