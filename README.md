@@ -150,4 +150,4 @@ A good trade-off is to run an Ubuntu 22.04 LTS VM where you code and compile thi
 
 ## Introduction Demo
 
-<video src="https://github.com/meuer26/ikanOSv5_Student/blob/main/ikanOSv5_Introduction.mp4" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/meuer26/ikanOSv5_Student/main/ikanOSv5_Introduction.mp4" controls width="100%"></video>
