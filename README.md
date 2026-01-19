@@ -146,3 +146,8 @@ This project requires Ubuntu 22.04 LTS as well as the programs called in Makefil
 This project is also designed to be coded and run on Linux bare metal but can be run on other systems (e.g., Windows) with some caveats. The best environment to run is Ubuntu 22.04 LTS on bare metal and run this OS project from that environment. It can also be run from an Ubuntu 22.04 LTS VM on other systems but that can have performance problems. 
 
 A good trade-off is to run an Ubuntu 22.04 LTS VM where you code and compile this project. Once the project is compiled, copy fs.img from your VM to your host system and run qemu-system-i386 from the host against fs.img. I have included a stripped down batch file (run_in_windows.bat) to launch the ikanOS from Windows assuming fs.img has been copied. You will not have SMP, networking, or sound but this will allow you to complete the course programming assignments and have good testing performance when not running Ubuntu on bare metal.
+
+
+## Introduction Demo
+
+<video src="https://raw.githubusercontent.com/meuer26/ikanOSv5_Student/ikanOSv5_Introduction.mp4" controls width="100%"></video>
