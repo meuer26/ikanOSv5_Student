@@ -153,4 +153,11 @@ A good trade-off is to run an Ubuntu 22.04 LTS VM where you code and compile thi
 
 https://github.com/user-attachments/assets/d645e79a-f1ac-45ce-91f1-3ae6796e2af6
 
+## Debugging in ikanOSv5
+
+
+
+https://github.com/user-attachments/assets/bc2e06ab-f29c-4b8d-bbcc-609b9c391f52
+
+
 
