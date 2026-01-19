@@ -149,8 +149,3 @@ A good trade-off is to run an Ubuntu 22.04 LTS VM where you code and compile thi
 
 
 ## Introduction Demo
-
-<video controls width="100%">
-  <source src="https://raw.githubusercontent.com/meuer26/ikanOSv5_Student/main/ikanOSv5_Introduction.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
