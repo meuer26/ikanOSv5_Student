@@ -157,7 +157,7 @@ qemu-debug-kernel: fs.img
 	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -vga virtio -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
 
 qemu-debug-shell: fs.img
-	gnome-terminal -- bash -c "gdb ./image-source/shell2 -x gdb_script.txt"
+	gnome-terminal -- bash -c "gdb ./image-source/sh -x gdb_script.txt"
 	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -vga virtio -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
 
 qemu-debug-user: fs.img
