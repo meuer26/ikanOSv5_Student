@@ -146,27 +146,27 @@ SUBMIT-ME.zip: $(CPP_SOURCES) $(ASM_SOURCES) $(HEADER_SOURCES) $(OTHER_SOURCES)
 	zip $@ *
 
 qemu: fs.img
-	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -vga virtio -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0,hostfwd=udp::12345-:12345 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
+	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -device virtio-vga,xres=640,yres=400 -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0,hostfwd=udp::12345-:12345 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
 
 qemu-debug-stage2: fs.img
 	gnome-terminal -- bash -c "gdb ./bootloader-stage2 -x gdb_script.txt"
-	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -vga virtio -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
+	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -device virtio-vga,xres=640,yres=400 -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
 
 qemu-debug-kernel: fs.img
 	gnome-terminal -- bash -c "gdb ./image-source/kernel -x gdb_script.txt"
-	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -vga virtio -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
+	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -device virtio-vga,xres=640,yres=400 -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
 
 qemu-debug-shell: fs.img
 	gnome-terminal -- bash -c "gdb ./image-source/sh -x gdb_script.txt"
-	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -vga virtio -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
+	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -device virtio-vga,xres=640,yres=400 -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
 
 qemu-debug-user: fs.img
 	gnome-terminal -- bash -c "gdb ./image-source/user -x gdb_script.txt"
-	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -vga virtio -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
+	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -device virtio-vga,xres=640,yres=400 -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
 
 qemu-debug: fs.img
 	gnome-terminal
-	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -vga virtio -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
+	qemu-system-i386 -smp 2 -drive file=fs.img,format=raw -monitor stdio -gdb tcp::9000 -S -device virtio-vga,xres=640,yres=400 -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -netdev user,id=net0 -device ne2k_isa,netdev=net0,iobase=0x300,irq=9 -object filter-dump,id=f1,netdev=net0,file=dump.pcap
 
 CLEAN_FILES := \
 	fs.img \
