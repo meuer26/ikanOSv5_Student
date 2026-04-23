@@ -81,12 +81,12 @@ const int numLevels = 3;
 const int height = 160;  // Reduced height for smaller levels
 const int width = 100;   // Reduced width for smaller levels
 // Constants for the visible portion of the map on screen
-const int visibleHeight = 20;  // Reduced to fit smaller levels
-const int visibleWidth = 60;   // Reduced visible width in characters
+const int visibleHeight = 40;  // Reduced to fit smaller levels
+const int visibleWidth = 79;   // Reduced visible width in characters
 // Starting row for rendering the map on screen
-const int startRow = 5;
+const int startRow = 2;
 // Row for displaying status information
-const int statusRow = 25;
+const int statusRow = 43;
 // Maximum number of rooms per level
 const int maxRooms = 30;
 // Maximum number of monsters in the game
