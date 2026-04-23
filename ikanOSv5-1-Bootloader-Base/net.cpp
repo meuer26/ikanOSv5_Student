@@ -13,11 +13,24 @@
 
 // https://wiki.osdev.org/Ne2000
 
-// Use netcat to listen on port 1234 "nc -u -l -p 1234"
+
+// How to use in ikanOS:
+// 1. Open a host terminal and use netcat to listen on port 1234 on the host "nc -u -l -p 1234" 
+// 2. Open another host terminal and use netcat to send to ikanOS "nc -u 127.0.0.1 12345"
+// 3. In ikanOS, launch kernel explorer "ex"
+// 4. in ikanOS, create a network pipe (socket) "cnpipe network1 10.0.2.2 1234"
+// 5. Type "mod <FD>" to modify the file descriptor of the network pipe.
+// 6. Type "ins" to type in the userspace buffer of that file descriptor. Press ESC once done.
+// 7. Now, you have to write the contents of the userspace buffer to the network pipe 
+// by typing "wpipe <FD>". This should show up in netcat.
+// 8. In the other host terminal window, you can type something and press enter.
+// 9. In ikanOS, you have to read from the network pipe to receive the new message "rpipe <FD>".
+
+
 // You can use tcpdump to see the data "sudo tcpdump -i any udp port 1234 -vv -X"
 // I made QEMU create a dump.pcap file to capture as well "tcpdump -r dump.pcap"
 // Can automatically support data payload/message of around 1400 bytes.
-// nc -u 127.0.0.1 12345 
+
 
 // Byte swap (comes from htons and htonl in standard libc)
 #define hostToNetworkShort(x) (((x & 0xFF) << 8) | ((x >> 8) & 0xFF))
