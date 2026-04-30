@@ -2172,13 +2172,13 @@ void sysWaitOneInterrupt()
 {
     // Dan O'Malley
     
-    // Waits one second and returns
+    // Waits one interupt then returns
     
     enableInterrupts();
     
     uint32_t futureSystemTimerInterruptCount = (systemTimerInterruptCount + 1);
     
-    while (systemTimerInterruptCount <= futureSystemTimerInterruptCount)
+    while (systemTimerInterruptCount < futureSystemTimerInterruptCount)
     {
 
     } 
