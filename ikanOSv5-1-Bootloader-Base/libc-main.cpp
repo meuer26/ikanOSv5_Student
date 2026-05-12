@@ -822,7 +822,7 @@ void systemKill(uint8_t *pidToKill)
     
     uint32_t currentPid = readValueFromMemLoc(RUNNING_PID_LOC);
     uint8_t *pidToKillMem = malloc(currentPid, sizeof(uint32_t));
-    bytecpy(pidToKillMem, pidToKill, 1);
+    bytecpy(pidToKillMem, pidToKill, sizeof(uint32_t));
 
     if (atoi(pidToKillMem) == currentPid)
     {
@@ -851,7 +851,7 @@ void systemTaskSwitch(uint8_t *pidToSwitchTo)
     uint8_t *pidToSwitch = malloc(currentPid, 20);
     bytecpy(pidToSwitch, pidToSwitchTo, 20);
 
-    if (hextoi(pidToSwitch) == currentPid)
+    if (atoi(pidToSwitch) == currentPid)
     { 
         printString(COLOR_RED, 1, 2, (uint8_t *)"You cannot switch to yourself!");
 
